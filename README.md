@@ -1,0 +1,2 @@
+# monorepo
+Mono repo structure
