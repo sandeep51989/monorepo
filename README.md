@@ -1,2 +1,2 @@
 # monorepo
-Mono repo structure
+Mono repo structure template for IBM-Capgemini
