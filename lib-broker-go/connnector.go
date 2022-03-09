@@ -1,8 +1,12 @@
-package broker
+package connector
+
+import (
+	"time"
+)
 
 type (
 	Connector interface {
-		Connect(Options *Options) error
+		Connect() error
 		Disconnect() error
 		Subscribe(topicName string,
 			decode func(message interface{}, subject string),
@@ -18,8 +22,13 @@ type (
 	}
 
 	Options struct {
-		ServerUrl string
-		Username  string
-		Password  string
+		ClientName   string
+		ServerUrls   []string
+		IsTlsEnabled bool
+	}
+
+	SubscriptionOptions struct {
+		GetRaw      bool
+		StartAtTime time.Time
 	}
 )

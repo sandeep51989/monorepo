@@ -52,7 +52,6 @@ type router struct {
 //NewRouter will create a pointer to an endpoints struct and create all of its internal pointers
 func NewRouter(log *log.Logger) *Router {
 	routes := make(map[string]RouteConfiguration)
-	handles := make(map[string]HandleConfiguration)
 
 	return &Router{
 		log:     log,
