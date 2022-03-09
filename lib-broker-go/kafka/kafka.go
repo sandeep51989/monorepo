@@ -19,16 +19,23 @@ type (
 
 func NewConnector(Options Connector.Options) connector.Connector {
 	return &kafka{
-		ClientName:   Options.ClientName,
-		ClientUrls:   Options.CleintUrls,
-		IsTlsEnabled: Options.IsTlsEnabled,
+		ClientName:      Options.ClientName,
+		ClientUrls:      Options.CleintUrls,
+		IsTlsEnabled:    Options.IsTlsEnabled,
+		CaCert:          Options.ca,
+		CleintCert:      options.cert,
+		IsConsumerGroup: options.IsConsumerGroup,
 	}
 }
 
 func (k *Kafka) Connect(Options Connector.Options) (e error) {
-	k.C
-
 	config := sarama.NewConfig()
 	config.Version = Options.ClientName
+
+}
+func (k *Kafka) Disconnect(Options Connector.Options) (e error) {
+	if e := k.stopSubscriber(); e != nil {
+		return e
+	}
 
 }
